@@ -41,4 +41,30 @@ def on_message(client, userdata, message):
 
     # Update the Streamlit plot
     update_plot()
+    # Function to update the plot on Streamlit
+def update_plot():
+    # Create the plot in Streamlit
+    st.write("### Sensor Data")
+    
+    fig, ax = plt.subplots(2, 1, figsize=(10, 6))
+    
+    # Plot Velocity data
+    ax[0].plot(sensor_data['time'], sensor_data['velx'], label='Velocity X')
+    ax[0].set_title('Velocity vs Time')
+    ax[0].set_xlabel('Time')
+    ax[0].set_ylabel('Velocity (scaled)')
+    ax[0].legend()
+
+    # Uncomment and plot Acceleration data if available
+    # ax[1].plot(sensor_data['time'], sensor_data['accx'], label='Acceleration X')
+    # ax[1].set_title('Acceleration vs Time')
+    # ax[1].set_xlabel('Time')
+    # ax[1].set_ylabel('Acceleration (scaled)')
+    # ax[1].legend()
+
+    st.pyplot(fig)
+
+    # After the plot is shown, close it to avoid too many open figures
+    plt.close(fig)
+
 
