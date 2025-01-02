@@ -77,7 +77,7 @@ client.username_pw_set("test", "12345")
 
 # Assign callback functions
 client.on_connect = on_connect
-
+client.on_message = on_message
 
 
 
