@@ -79,7 +79,7 @@ client.connect("3f4b987c21d74a5a87e6bdc7411d5651.s1.eu.hivemq.cloud", 8883)
 
 
 client.on_connect = on_connect
-#client.on_message = on_message
+client.on_message = on_message
 # Streamlit app interface
 st.title("Real-time Sensor Data Visualization")
 # Start the MQTT loop in the background
