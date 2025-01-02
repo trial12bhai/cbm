@@ -68,3 +68,15 @@ def update_plot():
     plt.close(fig)
 
 
+# Initialize the MQTT client
+#client = paho.Client("123")  # Use a simple, unique client ID
+client = paho.Client(paho.CallbackAPIVersion.VERSION1, "123")
+client = paho.Client(client_id="", userdata=None, protocol=paho.MQTTv311)
+client.tls_set(certfile=None,keyfile=None,cert_reqs=ssl.CERT_REQUIRED)
+client.username_pw_set("test", "12345")
+
+# Assign callback functions
+
+
+
+
