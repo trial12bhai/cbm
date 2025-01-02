@@ -84,7 +84,7 @@ client.on_message = on_message
 st.title("Real-time Sensor Data Visualization")
 # Start the MQTT loop in the background
 #client.loop_start()
-
+client.loop_forever(timeout=1.0)
 
 
 
