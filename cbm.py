@@ -76,6 +76,8 @@ client.tls_set(certfile=None,keyfile=None,cert_reqs=ssl.CERT_REQUIRED)
 client.username_pw_set("test", "12345")
 
 # Assign callback functions
+client.on_connect = on_connect
+
 
 
 
