@@ -24,3 +24,21 @@ def on_connect(client, userdata, flags, rc):
     print(f'Connected to MQTT broker with code {rc}')
     client.subscribe('#', qos=0)  # Subscribe to all topics
 
+# Callback function when a message is received
+def on_message(client, userdata, message):
+    payload = message.payload
+    buffer = bytearray(payload)
+
+    # Extract sensor data (for demonstration, we assume specific byte positions)
+    int_velx = buffer[5:7]
+
+    # Convert bytes to integers and scale
+    velxconvert_int = int.from_bytes(int_velx, byteorder='big', signed=False) / scalev
+
+    # Add the received data to the global list (using time as a simple counter here)
+    sensor_data['time'].append(len(sensor_data['time']) + 1)  # Simulating time as a counter
+    sensor_data['velx'].append(velxconvert_int)
+
+    # Update the Streamlit plot
+    update_plot()
+
