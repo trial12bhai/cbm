@@ -69,7 +69,7 @@ def update_plot():
     plt.close(fig)
 
 # Initialize the MQTT client
-client = paho.Client("123")  # Use a simple, unique client ID
+#client = paho.Client("123")  # Use a simple, unique client ID
 client.tls_set(certfile=None, keyfile=None, cert_reqs=ssl.CERT_REQUIRED)
 client.username_pw_set("test", "12345")
 
